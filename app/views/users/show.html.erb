@@ -14,6 +14,13 @@
     <%= (sum.to_f / @age.count).round %>
   </div>
   <div class="container">
+    <!-- Replacer cette méthode  -->
+    <% def trim(num)
+    i = num.to_i
+    f = num.to_f
+    i == f ? i : f
+      end %>
+    <!-- Replacer cette méthode  -->
     <h3>le prix moyen par représentation </h3>
       <% @show_title.uniq.each do |show| %>
         <% @price.where(spectacle: show).each do |att| %>
