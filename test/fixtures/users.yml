@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero_billet: 1
+  reservation: 1
+  date_reservation: 2018-10-03 11:13:57
+  heure_reservation: 2018-10-03 11:13:57
+  cle_spectacle: 1
+  spectacle: MyString
+  cle_representation: 1
+  representation: MyString
+  date_representation: 2018-10-03
+  heure_representation: 2018-10-03 11:13:57
+  date_fin_representation: 2018-10-03
+  heure_fin_representation: 2018-10-03 11:13:57
+  prix: 1
+  type_de_produit: MyString
+  filiere_de_vente: MyString
+  nom: MyString
+  prenom: MyString
+  email: MyString
+  adresse: MyString
+  code_postal: 1
+  pays: MyString
+  age: 1
+  sexe: MyString
+
+two:
+  numero_billet: 1
+  reservation: 1
+  date_reservation: 2018-10-03 11:13:57
+  heure_reservation: 2018-10-03 11:13:57
+  cle_spectacle: 1
+  spectacle: MyString
+  cle_representation: 1
+  representation: MyString
+  date_representation: 2018-10-03
+  heure_representation: 2018-10-03 11:13:57
+  date_fin_representation: 2018-10-03
+  heure_fin_representation: 2018-10-03 11:13:57
+  prix: 1
+  type_de_produit: MyString
+  filiere_de_vente: MyString
+  nom: MyString
+  prenom: MyString
+  email: MyString
+  adresse: MyString
+  code_postal: 1
+  pays: MyString
+  age: 1
+  sexe: MyString

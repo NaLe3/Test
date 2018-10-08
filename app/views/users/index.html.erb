@@ -1,0 +1,10 @@
+<%= flash[:notice] %>
+<div>
+  <h4>Importer votre fichier</h4>
+  <%= form_tag users_import_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Importer" %>
+    <button type="submit"> <%= link_to "Button", user_path(@users, :class => "btn btn-primary") %> </button>
+  <% end %>
+</div>
+

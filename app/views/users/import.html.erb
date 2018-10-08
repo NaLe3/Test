@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <th>le nombre de réservations</th>
+    <th>le nombre d’acheteurs uniques</th>
+    <th>l’âge moyen des acheteurs (arrondi en chiffre entier)</th>
+    <th>le prix moyen par représentation (arrondi à deux décimales, unité : €)</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.reservation %></td>
+      <td><%= user.cle_spectacle %></td>
+      <td><%= user.age %></td>
+      <td><%= user.prix %></td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>

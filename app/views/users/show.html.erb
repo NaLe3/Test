@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="container">
+    <h3>le nombre de réservations:</h3>
+    <%= @reservation.count %>
+  </div>
+  <div class="container">
+    <h3>le nombre d’acheteurs uniques </h3>
+    <%= @email.uniq.count %>
+  </div>
+  <div class="container">
+    <h3>l’âge moyen des acheteurs:</h3>
+    <% @age %>
+    <% sum = @age.sum { |e| e.to_i } %>
+    <%= (sum.to_f / @age.count).round %>
+  </div>
+  <div class="container">
+    <h3>le prix moyen par représentation </h3>
+      <% @show_title.uniq.each do |show| %>
+        <% @price.where(spectacle: show).each do |att| %>
+          <% @prices_per_show << att.attributes["prix"] %>
+        <% end %>
+        <% @average_prices << @prices_per_show.sum.to_f / @prices_per_show.count %>
+        <% @prices_per_show.clear %>
+        <% end %>
+        <% @average_prices.each_with_index do |r, i| %>
+
+        <%= "#{@show_title.uniq[i]}: #{trim(r.round(2))}€" %>
+      <% end %>
+  </div>
+  <button type="submit"> <%= link_to "Retour", users_index_path(@users, :class => "btn btn-primary") %> </button>
+</div>
+
+
+
