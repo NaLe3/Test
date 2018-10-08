@@ -23,7 +23,6 @@
         <% @prices_per_show.clear %>
         <% end %>
         <% @average_prices.each_with_index do |r, i| %>
-
         <%= "#{@show_title.uniq[i]}: #{trim(r.round(2))}€" %>
       <% end %>
   </div>
