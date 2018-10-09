@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero_billet: 1
+  reservation: 1
+  date_reservation: 2018-10-09 15:25:49
+  heure_reservation: 2018-10-09 15:25:49
+  cle_spectacle: 1
+  spetacle: MyString
+  user: one
+
+two:
+  numero_billet: 1
+  reservation: 1
+  date_reservation: 2018-10-09 15:25:49
+  heure_reservation: 2018-10-09 15:25:49
+  cle_spectacle: 1
+  spetacle: MyString
+  user: two

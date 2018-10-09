@@ -11,13 +11,13 @@ class UsersController < ApplicationController
 
   def show
     @users = CsvFile.last.users
-    @reservation = @users.pluck(:reservation)
-    @email = @users.pluck(:email)
-    @age = @users.pluck(:age)
-    @average_prices = []
-    @prices_per_show = []
-    @show_title = @users.pluck(:representation)
-    @price= @users.select(:prix)
+    @reservation = Reservation.pluck(:numero_billet)
+    # @email = @users.pluck(:email)
+    # @age = @users.pluck(:age)
+    # @average_prices = []
+    # @prices_per_show = []
+    # @show_title = @users.pluck(:representation)
+    # @price= @users.select(:prix)
   end
 
   def trim(num)

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cle_representation: 1
+  representation: MyString
+  date_representation: 2018-10-09
+  heure_representation: 2018-10-09 15:30:30
+  date_fin_representation: 2018-10-09
+  heure_fin_representation: 2018-10-09 15:30:30
+  prix: 1
+  type_de_produit: MyString
+  filiere_de_vente: MyString
+  user: one
+
+two:
+  cle_representation: 1
+  representation: MyString
+  date_representation: 2018-10-09
+  heure_representation: 2018-10-09 15:30:30
+  date_fin_representation: 2018-10-09
+  heure_fin_representation: 2018-10-09 15:30:30
+  prix: 1
+  type_de_produit: MyString
+  filiere_de_vente: MyString
+  user: two
