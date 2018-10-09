@@ -1,13 +1,3 @@
- <div class="container">
-    <h3>le nombre d’acheteurs uniques </h3>
-    <%= @email.uniq.count %>
-  </div>
-  <div class="container">
-    <h3>l’âge moyen des acheteurs:</h3>
-    <% @age %>
-    <% sum = @age.sum { |e| e.to_i } %>
-    <%= (sum.to_f / @age.count).round %>
-  </div>
   <div class="container">
     <h3>le prix moyen par représentation </h3>
     <% @show_title.uniq.each do |show| %>

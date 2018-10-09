@@ -1,9 +1,18 @@
 <div class="container">
   <div class="container">
     <h3>Nombre de réservations:</h3>
-    <%= @reservation.count %>
+    <%= @reservations.pluck(:numero_billet).count %>
   </div>
-
+  <div class="container">
+     <h3>le nombre d’acheteurs uniques </h3>
+     <%= @users.pluck(:email).uniq.count %>
+  </div>
+  <div class="container">
+    <h3>l’âge moyen des acheteurs:</h3>
+    <% @age %>
+    <% sum = @age.sum { |e| e.to_i } %>
+    <%= (sum.to_f / @age.count).round %>
+  </div>
 </div>
 
 
