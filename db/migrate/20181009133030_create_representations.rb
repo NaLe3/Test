@@ -10,7 +10,7 @@ class CreateRepresentations < ActiveRecord::Migration[5.2]
       t.integer :prix
       t.string :type_de_produit
       t.string :filiere_de_vente
-      t.references :user, foreign_key: true
+
 
       t.timestamps
     end

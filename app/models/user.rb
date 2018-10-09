@@ -22,13 +22,13 @@ class User < ApplicationRecord
        :spectacle => row[:spectacle])
     end
     CSV.foreach(file.path, headers: true, col_sep: ';', header_converters: :symbol) do |row|
-      representations << Representation.new(:representation => row[:representation], :date_representation => row[:date_representation],
+      representations << Representation.new(:cle_representation => row[:cle_representation], :representation => row[:representation], :date_representation => row[:date_representation],
        :heure_representation => row[:heure_representation], :date_fin_representation => row[:date_fin_representation],
-       :heure_fin_representation => row[:heure_fin_representation], :prix => row[:prix])
+       :heure_fin_representation => row[:heure_fin_representation], :prix => row[:prix], :type_de_produit => row[:type_de_produit], :filiere_de_vente => row[:filiere_de_vente])
     end
     User.import users, recursive: true
     Reservation.import reservations, recursive: true
-    Representation.import reservations, recursive: true
+    Representation.import representations, recursive: true
     users.each do |user|
       user.csv_file = csv_file
       user.save

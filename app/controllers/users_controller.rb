@@ -10,14 +10,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = CsvFile.last.users
+    @users = User.all
     @reservations = Reservation.all
     @age = @users.pluck(:age)
     @average_prices = []
     @prices_per_show = []
     @representations = Representation.all
     @show_title = @representations.pluck(:representation)
-    @price= @representations.select(:prix)
+    @price = Representation.pluck(:prix)
   end
 
   def trim(num)
@@ -25,5 +25,6 @@ class UsersController < ApplicationController
     f = num.to_f
     i == f ? i : f
   end
+  helper_method :my_method
 
 end
