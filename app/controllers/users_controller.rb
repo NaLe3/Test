@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.all
+    @users = CsvFile.last.users
     @reservation = @users.pluck(:reservation)
     @email = @users.pluck(:email)
     @age = @users.pluck(:age)
