@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_09_133030) do
+ActiveRecord::Schema.define(version: 2018_10_09_172709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 2018_10_09_133030) do
     t.integer "prix"
     t.string "type_de_produit"
     t.string "filiere_de_vente"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_representations_on_user_id"
+    t.bigint "csv_file_id"
+    t.index ["csv_file_id"], name: "index_representations_on_csv_file_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 2018_10_09_133030) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "csv_file_id"
+    t.bigint "representation_id"
+    t.index ["csv_file_id"], name: "index_reservations_on_csv_file_id"
+    t.index ["representation_id"], name: "index_reservations_on_representation_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
@@ -64,7 +68,9 @@ ActiveRecord::Schema.define(version: 2018_10_09_133030) do
     t.index ["csv_file_id"], name: "index_users_on_csv_file_id"
   end
 
-  add_foreign_key "representations", "users"
+  add_foreign_key "representations", "csv_files"
+  add_foreign_key "reservations", "csv_files"
+  add_foreign_key "reservations", "representations"
   add_foreign_key "reservations", "users"
   add_foreign_key "users", "csv_files"
 end
