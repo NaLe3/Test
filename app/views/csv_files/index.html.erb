@@ -1,0 +1,12 @@
+<%= flash[:notice] %>
+<div>
+  <h4>Importer votre fichier</h4>
+  <%= form_tag csv_files_import_path, multipart: true do %>
+    <%= file_field_tag :file, :required => 'required'%>
+    <%= submit_tag "Importer" %>
+    <% unless @users.empty? %>
+      <button type="submit"> <%= link_to "Button", csv_files_show_path(@csv_file, :class => "btn btn-primary") %> </button>
+    <% end %>
+  <% end %>
+</div>
+
