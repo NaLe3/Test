@@ -1,4 +1,7 @@
 class CsvFile < ApplicationRecord
+  require 'csv'
+  require 'activerecord-import/base'
+  require 'activerecord-import/active_record/adapters/postgresql_adapter'
   has_many :users
   has_many :representations
   has_many :reservations
