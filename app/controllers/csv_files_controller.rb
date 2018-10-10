@@ -9,7 +9,7 @@ class CsvFilesController < ApplicationController
   end
 
   def show
-    @users = User.all
+    @users = CsvFile.last.users
     @reservations = Reservation.all
     @age = @users.pluck(:age)
     @average_prices = []
