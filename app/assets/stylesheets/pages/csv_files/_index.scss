@@ -1,13 +1,11 @@
-.justify-content {
-  display: flex;
-  justify-content: space-around;
+.index_page {
+  margin: 145px;
+  margin-left: 525px;
 }
 
-.import_flexbox{
+.import_flexbox {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
-.h4 {
-  margin-top: 100px;
-}

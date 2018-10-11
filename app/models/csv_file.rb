@@ -14,7 +14,8 @@ class CsvFile < ApplicationRecord
     representations = []
     CSV.foreach(file.path, headers: true, col_sep: ';', header_converters: :symbol) do |row|
       users << User.new(:nom => row[:nom], :prenom => row[:prenom], :email => row[:email],
-       :adresse => row[:adresse], :code_postal => row[:code_postal], :pays => row[:pays], :age => row[:age], :sexe => row[:sexe])
+       :adresse => row[:adresse], :code_postal => row[:code_postal], :pays => row[:pays], :age => row[:age], :sexe => row[:sexe],
+       :csv_file=> row[:csv_file)
     end
     CSV.foreach(file.path, headers: true, col_sep: ';', header_converters: :symbol) do |row|
       reservations << Reservation.new(:numero_billet => row[:numero_billet], :reservation => row[:reservation],
