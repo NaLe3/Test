@@ -1,36 +1,37 @@
 <div class="container">
   <div class="container">
-    <h3>Nombre de réservations:</h3>
+    <h4>Nombre de réservations:</h4>
     <%= @reservations.pluck(:numero_billet).count %>
   </div>
   <div class="container">
-     <h3>le nombre d’acheteurs uniques </h3>
+     <h4>le nombre d’acheteurs uniques </h4>
      <%= @users.pluck(:email).uniq.count %>
   </div>
   <div class="container">
-    <h3>l’âge moyen des acheteurs:</h3>
+    <h4>l’âge moyen des acheteurs:</h4>
     <% @age %>
     <% sum = @age.sum { |e| e.to_i } %>
     <%= (sum.to_f / @age.count).round %>
   </div>
   <div class="container">
-    <h3>le prix moyen par représentation </h3>
+    <h4>le prix moyen par représentation </h4>
     <% @representations.pluck(:representation).uniq.each do |show| %>
       <% @representations.select(:prix).where(representation: show).each do |att| %>
         <% @prices_per_show << att.attributes["prix"] %>
       <% end %>
       <% @average_prices << @prices_per_show.sum.to_f / @prices_per_show.count %>
       <% @prices_per_show.clear %>
-      <% end %>
-      <% def trim(num)
-    i = num.to_i
-    f = num.to_f
-    i == f ? i : f
-  end %>
-      <% @average_prices.each_with_index do |r, i| %>
-      <%= "#{@show_title.uniq[i]}: #{trim(r.round(2))}€" %>
     <% end %>
+    <table>
+      <% @average_prices.each_with_index do |r, i| %>
+      <tr>
+        <td><%= "#{@show_title.uniq[i]} => #{trim(r.round(2))}€" %></td>
+      </tr>
+      <% end %>
+    </table>
   </div>
-
-  <button type="submit"> <%= link_to "Retour", csv_files_index_path(@csv_files, :class => "btn btn-primary") %> </button>
+  <div class="back-button">
+    <button type="submit"> <%= link_to "Retour", csv_files_index_path(@csv_files, :class => "btn btn-primary") %> </button>
+  </div>
 </div>
+
