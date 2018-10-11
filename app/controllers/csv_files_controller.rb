@@ -24,5 +24,6 @@ class CsvFilesController < ApplicationController
     f = num.to_f
     i == f ? i : f
   end
-  helper_method :my_method
+  helper_method :trim
+
 end
