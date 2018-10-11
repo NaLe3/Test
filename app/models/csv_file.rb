@@ -9,13 +9,19 @@ class CsvFile < ApplicationRecord
   def self.my_import(file)
     csv_file = CsvFile.new
     csv_file.save
+    csv_file = CsvFile.new
+    csv_file.save
+    user = User.new
+    user.save
+    representation = Representation.new
+    representation.save
     users = []
     reservations = []
     representations = []
     CSV.foreach(file.path, headers: true, col_sep: ';', header_converters: :symbol) do |row|
       users << User.new(:nom => row[:nom], :prenom => row[:prenom], :email => row[:email],
        :adresse => row[:adresse], :code_postal => row[:code_postal], :pays => row[:pays], :age => row[:age], :sexe => row[:sexe],
-       :csv_file=> row[:csv_file)
+      :sexe => row[:sexe])
     end
     CSV.foreach(file.path, headers: true, col_sep: ';', header_converters: :symbol) do |row|
       reservations << Reservation.new(:numero_billet => row[:numero_billet], :reservation => row[:reservation],
@@ -33,6 +39,14 @@ class CsvFile < ApplicationRecord
     users.each do |user|
       user.csv_file = csv_file
       user.save
+    end
+    reservations.each do |reservation|
+      reservation.csv_file = csv_file
+      reservation.save
+    end
+    representations.each do |representation|
+      representation.csv_file = csv_file
+      representation.save
     end
   end
 end

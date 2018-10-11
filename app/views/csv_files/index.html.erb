@@ -2,7 +2,7 @@
   <%= flash[:notice] %>
   <div class="import_flexbox" >
     <div class="import_page">
-      <h4>Importer votre fichier</h4>
+      <h4>Importer son fichier</h4>
     </div>
     <div class="import_page">
       <%= form_tag csv_files_import_path, multipart: true do %>
@@ -12,7 +12,7 @@
     </div>
     <div class="import_page">
       <% unless @users.empty? %>
-        <button type="submit"> <%= link_to "Visualisez votre fichier", csv_files_show_path(@csv_file, :class => "btn btn-primary") %> </button>
+        <button type="submit"> <%= link_to "Visualiser son fichier", csv_files_show_path(@csv_file, :class => "btn btn-primary") %> </button>
       <% end %>
     </div>
   </div>
